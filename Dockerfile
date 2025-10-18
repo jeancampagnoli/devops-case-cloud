@@ -1,20 +1,17 @@
-# 1. Imagem base com Python
+# Usar uma imagem oficial do Python como base
 FROM python:3.9-slim
 
-# 2. Define o diretório de trabalho dentro do container
+# Definir o diretório de trabalho dentro do container
 WORKDIR /app
 
-# 3. Copia o arquivo de dependências
-COPY requirements.txt .
+# Copiar o conteúdo do diretório atual para o container em /app
+COPY . /app
 
-# 4. Instala as dependências
+# Instalar as dependências do projeto
 RUN pip install --no-cache-dir -r requirements.txt
 
-# 5. Copia o resto do código da aplicação
-COPY . .
-
-# 6. Expõe a porta que a aplicação vai usar
+# Expor a porta 5000 para que o mundo exterior possa acessar a aplicação
 EXPOSE 5000
 
-# 7. Comando para iniciar a aplicação quando o container rodar
+# Comando para rodar a aplicação quando o container iniciar
 CMD ["python", "app.py"]
