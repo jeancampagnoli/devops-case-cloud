@@ -7,7 +7,7 @@ app = Flask(__name__)
 def hello():
     # Uma variável de ambiente para mostrar a atualização
     version = os.environ.get('APP_VERSION', '1.0')
-    return f"<h1>Olá! Bem-vindo ao Case DevOps top!</h1><p>Versão da Aplicação: {version}</p>"
+    return f"<h1>Olá! Bem-vindo ao Case DevOps e Cloud!</h1><p>Versão da Aplicação: {version}</p>"
 
 @app.route('/health')
 def health_check():
